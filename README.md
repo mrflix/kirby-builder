@@ -1,12 +1,6 @@
-# Kirby Builder (deprecated)
+# Kirby Builder
 
-⚠️⚠️⚠️
-
-**This Plugin is deprecated and is no longer maintained, as its functionality can be replaced by the native [Blocks Field](https://getkirby.com/docs/reference/panel/fields/blocks) and [Layout Field](https://getkirby.com/docs/reference/panel/fields/layout)**
-
-⚠️⚠️⚠️
-
----
+This is a fork of the original plugin by [Tim Ötting](https://github.com/TimOetting/) with the goal to keep it compatible with the latest php and Kirby versions. Current goal: PHP 7.4 and Kirby 3.7 (mid 2022).
 
 This versatile plugin for [Kirby CMS](https://a.paddle.com/v2/click/1129/38717?link=1170) (>= v3.0.1) lets you predefine content blocks with different field sets that can then be added, edited and arranged inside Kirby's panel.
 
