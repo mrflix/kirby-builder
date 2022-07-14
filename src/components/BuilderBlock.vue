@@ -282,7 +282,6 @@ export default {
         .then(res => {
           this.previewMarkup = res.preview;
           this.activeTab = null;
-          this.$refs["preview"].resize();
         });
       this.storeLocalUiState();
     },
