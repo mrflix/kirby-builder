@@ -87,24 +87,16 @@
       @open="onOpenDialog"
       @close="onCloseDialog"
     >
-      <k-items>
-        <k-item
-          :class="[
-            'kBuilder__addBlockButton',
-            'kBuilder__addBlockButton--' + key
-          ]"
-          v-for="(value, key) in extendedBlockConfigs"
-          :key="key"
-          :text="value.name || value.label"
-          @click="addBlock(key)"
-        >
-          <template slot="options">
-            <k-icon
-              type="add"
-              class="kBuilder__addBlockButtonIcon"
-            />
-          </template>
-        </k-item>
+      <k-items
+        :items="items"
+        @item="onItemClicked"
+      >
+        <template slot="options">
+          <k-icon
+            type="add"
+            class="kBuilder__addBlockButtonIcon"
+          />
+        </template>
       </k-items>
     </k-dialog>
   </k-field>
@@ -209,6 +201,16 @@ export default {
     },
     addBlockButtonLabel() {
       return this.$t("add");
+    },
+    items() {
+      let items = [];
+      for(const id in this.extendedBlockConfigs){
+        items.push({
+          id: id,
+          text: this.extendedBlockConfigs[id].name || this.extendedBlockConfigs[id].label
+        });
+      }
+      return items;
     }
   },
   methods: {
@@ -296,6 +298,9 @@ export default {
     },
     onCloseDialog() {
       this.dialogOpen = false;
+    },
+    onItemClicked(item) {
+      this.addBlock(item.id);
     },
     addBlock(key) {
       if (this.value == null) {
